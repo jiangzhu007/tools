@@ -1,0 +1,12 @@
+;;(add-to-list 'load-path "~/SoftwareSource/emacs/ecb-master")
+;;(load-file "~/SoftwareSource/emacs/ecb-master/ecb.el")
+;;(require 'ecb)
+;;(require 'ecb-autoloads)
+
+(add-to-list 'load-path "~/SoftwareSource/emacs/color-theme-6.6.0")
+(require 'color-theme)
+(color-theme-initialize)
+(setq color-theme-is-global t)
+(color-theme-dark-blue)
+
+(add-to-list 'default-frame-alist '(alpha . (65 40))) 

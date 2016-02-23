@@ -1,0 +1,33 @@
+
+# MacPorts Installer addition on 2013-03-06_at_21:40:25: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+[ -f ~/.git-bash-completion.sh ] && . ~/.git-bash-completion.sh
+
+##
+# Your previous /Users/jiangzhu/.profile file was backed up as /Users/jiangzhu/.profile.macports-saved_2015-03-08_at_12:21:42
+##
+
+# MacPorts Installer addition on 2015-03-08_at_12:21:42: adding an appropriate PATH variable for use with MacPorts.
+#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="/Users/jiangzhu/bin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+#PS1="\e[0;35m\! \e[0;37m: \e[0;33m$PWD \e[0;31m\$ \e[m"
+#PS1="\e[0;35m\! \e[0;37m: \e[0;33m$PWD \e[0;31m\$ \e[0;36m"
+# Make sure all non-printable bytes in your PS1 are contained within \[ \]. Otherwise, bash will count them in the length
+# of the prompt. It uses the length of the prompt to determine when to wrap the line.
+# color \! color : color $PWD color \$ color, every color is contained in \[ \]
+PS1="\[\e[0;35m\]\! \[\e[0;37m\]: \[\e[0;33m\]\w \[\e[0;31m\]\$ \[\e[0;36m\]"
+
+alias ls='ls -G'
+
+##
+# Your previous /Users/jiangzhu/.profile file was backed up as /Users/jiangzhu/.profile.macports-saved_2015-12-22_at_12:49:27
+##
+
+# MacPorts Installer addition on 2015-12-22_at_12:49:27: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

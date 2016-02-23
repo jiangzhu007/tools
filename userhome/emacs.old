@@ -1,0 +1,183 @@
+(custom-set-variables
+;; custom-set-variables was added by Custom.  
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+
+'(ecb-options-version "2.40")
+'(ecb-source-path (quote ("~/Documents/Projects" "/")))
+'(semantic-edits-verbose-flag nil)
+'(semantic-c-dependency-system-include-path (quote ("/usr/include")))
+'(semantic-complete-inline-analyzer-displayor-class (quote semantic-displayor-ghost))
+'(semantic-complete-inline-analyzer-idle-displayor-class (quote semantic-displayor-ghost))
+'(semantic-completion-displayor-format-tag-function (quote semantic-format-tag-prototype))
+'(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
+'(which-function-mode t)
+'(ecb-auto-activate t)
+'(desktop-save-mode 1)
+'(truncate-lines t))
+
+(add-to-list 'load-path "~/SoftwareSource/emacs/cscope-15.7a/contrib/xcscope")
+(load-file "~/SoftwareSource/emacs/cscope-15.7a/contrib/xcscope/xcscope.el")
+(require 'xcscope)
+(require 'cl)
+;;(require 'cl-19)
+
+(setq path-to-ctags "/usr/local/bin/ctags") 
+(defun create-tags (dir-name)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (shell-command
+  (format "%s -f %s/TAGS -e -R %s" path-to-ctags dir-name (directory-file-name dir-name)))
+)
+
+
+(defun file-in-directory-list-p (file dirlist)
+"Returns true if the file specified is contained within one of
+the directories in the list. The directories must also exist."
+(let ((dirs (mapcar 'expand-file-name dirlist))
+	(filedir (expand-file-name (file-name-directory file))))
+	(and (file-directory-p filedir)
+	(member-if (lambda (x) ; Check directory prefix matches
+		(string-match (substring x 0 (min(length filedir) (length x))) filedir))
+		dirs))))
+
+(defun buffer-standard-include-p ()
+	"Returns true if the current buffer is contained within one of
+	the directories in the INCLUDE environment variable."
+	(and (getenv "INCLUDE")
+		(file-in-directory-list-p buffer-file-name (split-string (getenv "INCLUDE") path-separator))))
+
+(add-to-list 'magic-fallback-mode-alist '(buffer-standard-include-p . c++-mode))
+(setq byte-compile-warnings nil)
+
+(load-file "~/SoftwareSource/emacs/cedet-1.1/common/cedet.el")
+(global-ede-mode 1)                      ; Enable the Project management system
+(semantic-load-enable-excessive-code-helpers)
+(semantic-load-enable-all-exuberent-ctags-support)
+(semantic-load-enable-semantic-debugging-helpers)
+(global-semantic-tag-folding-mode)
+(global-semantic-idle-summary-mode)
+(global-semantic-decoration-mode)
+(global-semantic-idle-local-symbol-highlight-mode)
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
+
+(require 'semantic-ia)
+(semantic-add-system-include "/usr/include" 'c-mode)
+(semantic-add-system-include "/usr/local/include/boost" 'c++-mode)
+(semantic-add-system-include "/opt/local/include/gcc47/c++" 'c++-mode)
+
+(defun my-c-mode-cedet-hook ()
+	(local-set-key "." 'semantic-complete-self-insert)
+	(local-set-key ">" 'semantic-complete-self-insert)
+	(local-set-key [(control return)] 'semantic-ia-complete-symbol)
+	(local-set-key "\C-c?" 'semantic-ia-complete-symbol-menu)
+	(local-set-key "\C-c>" 'semantic-complete-analyze-inline)
+	(local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle))
+(add-hook 'c-mode-common-hook 'my-c-mode-cedet-hook)
+
+(add-to-list 'load-path "~/SoftwareSource/emacs/ecb-2.40")
+(load-file "~/SoftwareSource/emacs/ecb-2.40/ecb.el")
+(require 'ecb)
+(require 'ecb-autoloads)
+(setq ecb-tip-of-the-day nil)
+
+;;(add-to-list 'load-path "~/SoftwareSource/emacs/icicles")
+;;(require 'icicles)
+;;(icy-mode 1)
+
+;;(add-to-list 'load-path "~/.emacs.d")
+;;(require 'auto-complete-config)
+;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;;(ac-config-default)
+
+;;(require 'pos-tip)
+
+;; yasnippet conflict with ac-complete. Need to investigate
+;;(add-to-list 'load-path "~/SoftwareSource/emacs/yasnippet")
+;;(require 'yasnippet)
+;;(setq yas/snippet-dirs '("~/SoftwareSource/emacs/yasnippet/snippets"))
+;;(yas/global-mode 1)
+
+;;(load-file "~/SoftwareSource/emacs/fold-dwim.el")
+;;(load-file "~/SoftwareSource/emacs/google-c-style.el")
+;;(add-hook 'c-mode-common-hook 'google-set-c-style)
+;;(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;;(add-hook 'c-mode-common-hook
+;;  (lambda() 
+;;    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
+
+; style I want to use in c++ mode
+(c-add-style "my-style"
+	     '("stroustrup"
+	       (indent-tabs-mode . nil)        ; use spaces rather than tabs
+	       (c-basic-offset . 4)            ; indent by four spaces
+	       (c-offsets-alist . ((inline-open . 0)  ; custom indentation rules
+				   (brace-list-open . 0)
+				   (statement-case-open . +)))))
+
+(defun my-c++-mode-hook ()
+  (c-set-style "my-style")        ; use my-style defined above
+  (auto-fill-mode)        
+  (c-toggle-auto-hungry-state 1))
+
+;;(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
+;;(load-library "clang-completion-mode")
+
+(add-to-list 'load-path "~/SoftwareSource/emacs/color-theme-6.6.0")
+(require 'color-theme)
+;; (color-theme-initialize)
+;; (setq color-theme-is-global t)
+;; (color-theme-xp)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-euphoria)))
+
+;; (defun my-onload()
+;;   (setq filename (concat (expand-file-name "~") "/.themesettings"))
+;;   (if (file-exists-p filename)
+;;       (progn
+;; 	(load-file filename)
+;; 	(if (equalp theme-load-from-file t)
+;; 	    (progn
+;; 	      (setq filename 
+;; 		    (concat (expand-file-name "~") "/.curTheme"))
+;; 	      (if (file-exists-p filename)
+;; 		  (progn
+;; 		    (message "selecting theme from .curTheme")
+;; 		    (load-file filename)
+;; 		    (color-theme-install (my-color-theme))
+;; 		    )))
+;; 	  (funcall theme-default)
+;; 	  ))
+;;     (message "selecting theme from color-theme-standard")
+;;     (color-theme-install(color-theme-standard)
+;; 			)))
+
+;; (defun my-kill-saves()
+;;   (if (equalp theme-load-from-file t)
+;;       (progn
+;; 	(color-theme-print)
+;; 	(write-file (concat (expand-file-name "~") "/.curTheme"))
+;; 	)))
+    
+;; (add-hook 'after-init-hook 'my-onload)
+;; (add-hook 'kill-emacs-hook 'my-kill-saves)
+
+;;(dolist (command '(yank yank-pop))
+;;  (eval `(defadvice ,command (after indent-region activate)
+;;	   (and (not current-prefix-arg)
+;;		(member major-mode '(emacs-lisp-mode lisp-mode
+;;						     clojure-mode    scheme-mode
+;;						     haskell-mode    ruby-mode
+;;						     rspec-mode      python-mode
+;;						     c-mode          c++-mode
+;;						     objc-mode       latex-mode
+;;						     plain-tex-mode))
+;;		(let ((mark-even-if-inactive transient-mark-mode))
+;;		  (indent-region (region-beginning) (region-end) nil))))))
+;;(load-file "~/SoftwareSource/emacs/lisp_emacs-lisp_package.el")
+;;(require 'package)
+;;(package-initialize)

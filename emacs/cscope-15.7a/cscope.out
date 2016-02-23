@@ -1,0 +1,251 @@
+cscope 15 $HOME/Downloads/Software download/cscope-15.7a               0000001273
+	@config.h
+
+5 
+	#BSD
+ 1
+
+	)
+
+8 
+	#HAS_CURSES
+ 1
+
+	)
+
+11 
+	#HAVE_ASPRINTF
+ 1
+
+	)
+
+15 
+	#HAVE_DIRENT_H
+ 1
+
+	)
+
+18 
+	#HAVE_FCNTL_H
+ 1
+
+	)
+
+27 
+	#HAVE_GETCWD
+ 1
+
+	)
+
+33 
+	#HAVE_INTTYPES_H
+ 1
+
+	)
+
+54 
+	#HAVE_LSTAT
+ 1
+
+	)
+
+57 
+	#HAVE_MEMCPY
+ 1
+
+	)
+
+60 
+	#HAVE_MEMORY_H
+ 1
+
+	)
+
+63 
+	#HAVE_MEMSET
+ 1
+
+	)
+
+75 
+	#HAVE_REGCOMP
+ 1
+
+	)
+
+78 
+	#HAVE_SETMODE
+ 1
+
+	)
+
+81 
+	#HAVE_SIGNAL_H
+ 1
+
+	)
+
+84 
+	#HAVE_SIGSETJMP
+ 1
+
+	)
+
+87 
+	#HAVE_SNPRINTF
+ 1
+
+	)
+
+90 
+	#HAVE_STDARG_H
+ 1
+
+	)
+
+96 
+	#HAVE_STDINT_H
+ 1
+
+	)
+
+99 
+	#HAVE_STDLIB_H
+ 1
+
+	)
+
+102 
+	#HAVE_STRCHR
+ 1
+
+	)
+
+105 
+	#HAVE_STRERROR
+ 1
+
+	)
+
+108 
+	#HAVE_STRINGS_H
+ 1
+
+	)
+
+111 
+	#HAVE_STRING_H
+ 1
+
+	)
+
+128 
+	#HAVE_SYS_STAT_H
+ 1
+
+	)
+
+131 
+	#HAVE_SYS_TERMIOS_H
+ 1
+
+	)
+
+134 
+	#HAVE_SYS_TYPES_H
+ 1
+
+	)
+
+146 
+	#HAVE_UNISTD_H
+ 1
+
+	)
+
+155 
+	#HAVE_VASPRINTF
+ 1
+
+	)
+
+161 
+	#HAVE_VSNPRINTF
+ 1
+
+	)
+
+180 
+	#PACKAGE
+ "csc›e"
+
+	)
+
+183 
+	#PACKAGE_BUGREPORT
+ ""
+
+	)
+
+186 
+	#PACKAGE_NAME
+ ""
+
+	)
+
+189 
+	#PACKAGE_STRING
+ ""
+
+	)
+
+192 
+	#PACKAGE_TARNAME
+ ""
+
+	)
+
+195 
+	#PACKAGE_VERSION
+ ""
+
+	)
+
+198 
+	#RETSIGTYPE
+ 
+
+	)
+
+204 
+	#STDC_HEADERS
+ 1
+
+	)
+
+207 
+	#USE_NCURSES
+ 1
+
+	)
+
+219 
+	#VERSION
+ "15.7a"
+
+	)
+
+223 
+	#YYTEXT_POINTER
+ 1
+
+	)
+
+	@
+1
+.
+1
+/usr/include
+1
+9
+config.h

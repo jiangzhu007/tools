@@ -1,0 +1,52 @@
+The following ports are currently installed:
+  boost @1.59.0_2+no_single+no_static+python27 (active)
+  bzip2 @1.0.6_0 (active)
+  cctools @877.5_1+llvm37
+  cctools @877.5_2+llvm37 (active)
+  db48 @4.8.30_4 (active)
+  expat @2.1.0_0 (active)
+  gcc6 @6-20151220_0
+  gcc6 @6-20160131_0
+  gcc6 @6-20160207_0
+  gcc6 @6-20160214_0 (active)
+  gcc_select @0.1_8 (active)
+  gettext @0.19.6_0
+  gettext @0.19.7_0 (active)
+  gmp @6.1.0_1 (active)
+  gperf @3.0.4_2 (active)
+  gtest @1.7.0.746_0 (active)
+  icu @55.1_0 (active)
+  isl @0.14.1_0 (active)
+  ld64 @2_0 (active)
+  ld64-latest @253.3_0+llvm37 (active)
+  libcxx @3.7.0_0
+  libcxx @3.7.1_0 (active)
+  libedit @20150325-3.1_0 (active)
+  libevent @2.0.22_1 (active)
+  libffi @3.2.1_0 (active)
+  libgcc-devel @6-20151220_0
+  libgcc-devel @6-20160131_0
+  libgcc-devel @6-20160207_0
+  libgcc-devel @6-20160214_0 (active)
+  libiconv @1.14_0 (active)
+  libmacho-headers @877.5_0 (active)
+  libmpc @1.0.3_0 (active)
+  libunwind-headers @3.7.0_1 (active)
+  llvm-3.7 @3.7.0_0
+  llvm-3.7 @3.7.1_1 (active)
+  llvm_select @1.0_0 (active)
+  mpfr @3.1.3_0 (active)
+  ncurses @6.0_0 (active)
+  openssl @1.0.2f_0 (active)
+  python2_select @0.0_1 (active)
+  python27 @2.7.11_0
+  python27 @2.7.11_1 (active)
+  python_select @0.3_6 (active)
+  readline @6.3.003_1 (active)
+  sqlite3 @3.10.2_0 (active)
+  tbb @4.4-20150728_0 (active)
+  tmux @2.1_0
+  tmux @2.1_3 (active)
+  uncrustify @0.61_0 (active)
+  xz @5.2.2_0 (active)
+  zlib @1.2.8_0 (active)
