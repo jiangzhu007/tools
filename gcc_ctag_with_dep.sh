@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# ./clang_ctags_with_dep.sh file1.c file2.c ... to generate a tags file for these files.
+# ./gcc_ctags_with_dep.sh file1.c file2.c ... to generate a tags file for these files.
 
 echo "Generating Tags for $* with g++-mp-6"
 # 1. tr " " "\n" # replace space with new line
 # 2. tr "\\" "\n" # replace \ with new line
 # 3. sed -e '/^\s*$/d' -e '/\.o:*$/d' # remove empty lines and .o files
-FILES="$(g++-mp-6 -M -I/opt/local/include $* |  \
+FILES="$(/opt/local/bin/g++-mp-6 -M -I/opt/local/include $* |  \
     tr " " "\n" | \
     tr "\\" "\n"| \
     sed -e '/^\s*$/d' -e '/\.o:*$/d')"
